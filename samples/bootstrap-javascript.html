@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Other Components</title>
+    <link href="../cyborgtheme/css/bootstrap.css" rel="stylesheet" />
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <style>
+        body {
+            background-color: #ddddcc;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".spytarget" data-offset="40">
+
+    <nav class="nav navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">JavaScript</a>
+            </div>            
+            <div class="spytarget">
+                <ul class="nav navbar-nav">
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#modal">Modal</a></li>
+                    <li><a href="#tooltips">Tooltips</a></li>
+                    <li><a href="#spy">Scrollspy</a></li>
+                    <li><a href="#carousel">Carousel</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 id="buttons">More Buttons</h2>
+
+                <div id="btngroup" class="btn-group" data-toggle="buttons-radio">
+                    <button type="button" class="btn btn-primary">1</button>
+                    <button type="button" class="btn btn-primary">2</button>
+                    <button type="button" class="btn btn-primary">3</button>
+                </div>
+
+                <button id="getbuttonstates" type="button" class="btn">Retrieve button states</button>
+
+                <div id="buttonstates">
+                </div>
+                
+                <hr/>
+
+                <button id="imageSaver" type="button" class="btn btn-primary"
+                        data-loading-text="Saving..."
+                        data-complete-text="Saved! Try another?">
+                    Save the image
+                </button>
+
+                <script>
+
+                    $(function () {
+                        $("#imageSaver").click(function () {
+
+                            var btn = $(this);
+                            btn.button("loading");
+
+                            setTimeout(function () {
+                                btn.button("reset");
+                            }, 2000);
+
+                        });
+
+                        $("#getbuttonstates").click(function () {
+
+                            var output = "";
+                            $("#btngroup").children().each(function () {
+                                output += $(this).text() + " is " + $(this).hasClass("active") + " ";
+                            });
+                            $("#buttonstates").text(output);
+                        });
+
+                    });
+
+                </script>
+                <hr />
+
+                <h2 id="modal">Modals</h2>
+
+                <a href="#themodal" role="button" class="btn btn-primary" data-toggle="modal">Launch a modal dialog</a>
+                
+                <div id="themodal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-title">A Modal Dialog</div>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3>Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to do this?</p>
+                                <div class="progress progress-striped">
+                                    <div id="doitprogress" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                                <a id="yesbutton" href="#" class="btn btn-primary" data-loading-text="Doing it...">Yes! Do it now!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    $(function () {
+
+                        var yesButton = $("#yesbutton");
+                        var theModal = $("#themodal");
+                        var progress = $("#doitprogress");
+
+                        yesButton.click(function () {
+                            yesButton.button("loading");
+
+                            var counter = 0;
+                            var countDown = function () {
+                                counter++;
+                                if (counter == 11) {
+                                    yesButton.button("reset");
+                                    theModal.modal("hide");
+                                }
+                                else {
+                                    progress.width(counter * 10 + "%");
+                                    setTimeout(countDown, 500);
+                                }
+                            };
+                            setTimeout(countDown, 500);
+                        });
+
+
+                    });
+
+                </script>
+                <hr />
+
+                <h2 id="tooltips">Tooltips</h2>
+
+                A <a id="cpu" href="#" rel="tooltip"
+                     title="central processing unit"
+                     data-placement="right"
+                     class="initialism">CPU</a> is the hardware within a computer that carries out the instructions of a
+                computer program by performing the basic arithmetical, logical, and
+                input/output operations of the system. The term has been in use in the
+                computer industry at least since the early 1960s.[2] The form, design,
+                and implementation of CPUs have changed over the course of their history,
+                but their fundamental operation remains much the same.
+                In older computers, CPUs require one or more printed circuit boards.
+                With the invention of
+                the microprocessor, a CPU could be contained within a single silicon chip.
+                The first computers to use microprocessors were personal computers and
+                small workstations. Since the 1970s the microprocessor class of CPUs has
+                almost completely overtaken all other CPU implementations, to the extent
+                that even mainframe computers use one or more microprocessors. Modern
+                microprocessors are large scale integrated circuits in packages typically
+                less than four centimeters square, with hundreds of connecting pins.
+                A computer can have more than one CPU; this is called multiprocessing.
+                Some microprocessors can contain multiple CPUs on a single chip;
+                those microprocessors are called multi-core processors.
+                Two typical components of a CPU are the
+                <a href="#" rel="popover"
+                   data-content="This is where the computations take place!"
+                   data-original-title="Arithmetic Logic Unit">ALU</a>, which performs
+                arithmetic and logical operations, and the control unit (CU), which extracts
+                instructions from memory and decodes and executes them, calling on the ALU when necessary.
+                Not all computational systems rely on a central processing unit. An array processor or
+                vector processor has multiple parallel computing elements, with no one unit
+                considered the "center". In the distributed computing model, problems are solved
+                by a distributed interconnected set of processors.
+
+
+                <script>
+
+                    $(function () {
+                        $("a[rel='tooltip']").tooltip();
+                        $("a[rel='popover']").popover({ placement: "right" })
+                                             .click(function (e) { e.preventDefault(); });
+                    });
+
+                </script>
+                <hr />
+                <h2 id="spy">Spying</h2>
+                <div>
+                    Espionage or spying involves a government or individual obtaining information that is considered secret or confidential without the permission of the holder of the information. Espionage is inherently clandestine, as it is taken for granted that it is unwelcome and, in many cases illegal and punishable by law. It is a subset of intelligence gathering—which otherwise may be conducted from public sources and using perfectly legal and ethical means. It is crucial to distinguish espionage from intelligence gathering, as the latter does not necessarily involve espionage, but often collates open-source information. When successful, however, espionage always produces intelligence.
+                    Espionage is often part of an institutional effort by a government or commercial concern, however the term is generally associated with state spying on potential or actual enemies primarily for military purposes. Spying involving corporations is known as industrial espionage.
+                    One of the most effective ways to gather data and information about an enemy (or potential enemy) is by infiltrating the enemy's ranks. This is the job of the spy (espionage agent). Spies can bring back all sorts of information concerning the size and strength of an enemy army. They can also find dissidents within the enemy's forces and influence them to defect. In times of crisis, spies can also be used to steal technology and to sabotage the enemy in various ways. Counterintelligence operatives can feed false information to enemy spies, protecting important domestic secrets and preventing attempts at subversion. Nearly every country has very strict laws concerning espionage, and the penalty for being caught is often severe. However, the benefits that can be gained through espionage are generally great enough that most governments and many large corporations make use of it to varying degrees.
+                    Further information on clandestine HUMINT (human intelligence) information collection techniques is available, including discussions of operational techniques, asset recruiting and the tradecraft used to collect this information.
+                </div>
+                <hr />
+                
+                <hr />
+
+                <div id="carousel" class="carousel" data-ride="carousel">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel" data-slide-to="1"></li>
+                        <li data-target="#carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="images/lobster.jpg" />
+                            <div class="carousel-caption">
+                                <h4>Lobster!</h4>
+                                <p>A lobster dinner at the House of Elliot in Ghent, Belgium.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/IMG_0241.JPG" />
+                            <div class="carousel-caption">
+                                <h4>A Church!</h4>
+                                <p>The church was magnificent, and even had a singing choir.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/IMG_0250.JPG" />
+                            <div class="carousel-caption">
+                                <h4>The Catacombs</h4>
+                                <p>When I think of catacombs, I think of dusty, dirty, skeleton filled basements. Not this one...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+            <script>
+                $(function () {
+                    $("#carousel").carousel({ interval: 2000 });
+                });
+            </script>
+            <div class="col-md-2">
+                <section class="spytarget">
+                    <ul id="navigation" class="nav nav-pills nav-stacked affix">
+                        <li><a href="#buttons">Buttons</a></li>
+                        <li><a href="#modal">Modal</a></li>
+                        <li><a href="#tooltips">Tooltips</a></li>
+                        <li><a href="#spy">Scrollspy</a></li>
+                        <li><a href="#carousel">Carousel</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+     
+    </div>    
+</body>
+</html>

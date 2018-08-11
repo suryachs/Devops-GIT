@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Other Components</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">The Sample Site</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/Articles/List">Articles</a></li>
+                <li><a href="/blogs/all">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10">
+
+                <div class="jumbotron">
+                    <h1>Use HTML!</h1>
+                    <p>It's better than XML!</p>
+                    <p>
+                        <a class="btn btn-primary btn-lg">Learn more</a>
+                    </p>
+                </div>
+
+
+                <h1>Pictures of Life</h1>
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://home.adelphi.edu/~stemkoski/mathematrix/0life.jpg">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">In Black and White</h4>
+                        <div class="media">
+                            This game uses black circles in a white grid.
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="https://lh3.ggpht.com/W29C-I-82oU4i8OFTw-xjvkJrU78AwirkJVr1QbKxKHOyqUHxGjX7Yt5XJH6mzp41DBl=w124">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Square</h4>
+                        <div class="media">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="http://upload.wikimedia.org/wikipedia/commons/9/9c/Conways_game_of_life_canoe.png" />
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">A Bit Of Color</h4>
+                                <div class="media">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="alert alert-success">
+                    <button class="close" data-dismiss="alert">&times;</button>
+                    <strong>Wow!</strong> You made it this far!
+                </div>
+
+                <div class="text-center">
+                    <ul class="pagination pagination-lg">
+                        <li class="disabled"><span>Prev</span></li>
+                        <li class="active"><a href="/articles/lifewithxaml?page=1">1</a></li>
+                        <li><a href="/articles/lifewithxaml?page=1">2</a></li>
+                        <li><a href="/articles/lifewithxaml?page=1">3</a></li>
+                        <li><a href="/articles/lifewithxaml?page=1">4</a></li>
+                        <li><a href="/articles/lifewithxaml?page=1">Next</a></li>
+                    </ul>
+                </div>                
+            </div>
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="#" data-toggle="tab">Favorites<span class="badge pull-right">42</span></a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tab">New<span class="badge pull-right">12</span></a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tab">Archived<span class="badge pull-right">112</span></a>
+                    </li>
+                </ul>               
+                <section>
+                    <span class="label">Default</span>
+                    <span class="label label-success">Success Label</span>
+                    <span class="label label-warning">Warning</span>
+                    <span class="label label-danger">Danger</span>
+                    <span class="label label-info">Info</span>
+                    <span class="label label-primary">Primary</span>
+                </section>
+                <hr />            
+                <hr />
+            </div>
+        </div>
+    </div>
+    <footer>
+        (c) Some Web Site
+    </footer>
+</body>
+</html>
