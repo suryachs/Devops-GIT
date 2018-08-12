@@ -1,6 +1,2 @@
-<<<<<<< Updated upstream
 Hi, Test program
 new one...a line
-=======
-Hi, Test program.jhkgdjk
->>>>>>> Stashed changes
