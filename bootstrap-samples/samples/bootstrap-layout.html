@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="head">
+    <title>Layout With Bootstrap</title>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        .row > div {
+            background-color: #cccc99;
+        }
+
+        .container-fluid .row > div {
+            background-color: #99cccc;
+        }
+
+        .row, .row-fluid {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+        <script>
+            (function () {
+
+                var turnOnBootstrap = function () {
+                    $("head").append($('<link id="bootstrap" href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />'));
+                };
+
+                var turnOffBootstrap = function () {
+                    $("#bootstrap").remove();
+                };
+
+                $(function () {
+                    $("#bootstrapcheck").click(function () {
+                        $(this).is(':checked') ? turnOnBootstrap() : turnOffBootstrap();
+                    });
+                    $("#gridincontainercheck").click(function () {
+                        $("#gridincontainer").toggle();
+                    });
+                    $("#fluidgridincontainercheck").click(function () {
+                        $("#fluidgridincontainer").toggle();
+                    });
+                    $("#gridcheck").click(function () {
+                        $("#grid").toggle();
+                    });
+                    $("#fluidgridcheck").click(function () {
+                        $("#fluidgrid").toggle();
+                    });
+                });
+            }());
+
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            <label class="checkbox">
+                Add Bootstrap styles
+                <input type="checkbox" id="bootstrapcheck" />
+            </label>
+        </div>
+        <div>
+            <label class="checkbox">
+                Show grid in container
+                <input type="checkbox" checked id="gridincontainercheck" />
+            </label>
+        </div>
+        <div>
+            <label class="checkbox">
+                Show grid in fluid container
+                <input type="checkbox" checked id="fluidgridincontainercheck" />
+            </label>
+        </div>
+    </form>
+    <div>
+        <a href="https://raw.github.com/OdeToCode/bootstrap-samples/gh-pages/samples/bootstrap-layout.html">View Source</a>
+    </div>
+    <div id="gridincontainer" class="container">
+        <h2>Grid in container</h2>
+        <div class="row">
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">3</div>
+            <div class="col-md-4">4</div>
+            <div class="col-md-5">5</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">5</div>
+            <div class="col-md-7">7</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2">3 offset 2</div>
+            <div class="col-md-7">7</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">12</div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="fluidgridincontainer">
+        <h2>Grid in fluid container</h2>
+        <div class="row">
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">1</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">3</div>
+            <div class="col-md-4">4</div>
+            <div class="col-md-5">5</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">5</div>
+            <div class="col-md-7">7</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2">3 offset 2</div>
+            <div class="col-md-7">7</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">12</div>
+        </div>
+    </div>
+
+</body>
+</html>
